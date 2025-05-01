@@ -15,65 +15,67 @@
       color: #222;
       line-height: 1.6;
     }
-
     header {
       background-color: #000;
       color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 3rem 1rem;
     }
-
-    header img {
-      width: 220px;
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .logo-row img {
+      width: 80px;
       height: auto;
       border-radius: 50%;
-      animation: rotateLogo 20s linear infinite;
-      display: block;
-      margin: 0 auto 1rem;
     }
-
-    @keyframes rotateLogo {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    h1 {
+    .logo-row h1 {
       font-size: 2.5rem;
-      margin: 1rem 0 0.5rem;
+      margin: 0;
     }
-
     nav {
+      margin-top: 1rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 1rem;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
     }
-
     section {
       padding: 2rem 1rem;
       max-width: 800px;
       margin: 0 auto;
     }
-
     h2 {
-      margin-top: 0;
       color: #333;
     }
-
-    ul {
-      padding-left: 1.2rem;
+    .download-btn {
+      display: inline-block;
+      background-color: #0070f3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-
+    .download-btn:hover {
+      background-color: #005bb5;
+    }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
     .cta {
       background-color: #0070f3;
       color: white;
@@ -82,26 +84,23 @@
       border-radius: 8px;
       margin: 2rem 0;
     }
-
     .cta a {
       color: white;
       text-decoration: underline;
       font-weight: bold;
     }
-
-    footer {
-      background-color: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+    ul {
+      padding-left: 1.2rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="munduscoin-logo.jpg" alt="MundusCoin Logo">
-    <h1>MundusCoin</h1>
+    <div class="logo-row">
+      <img src="munduscoin-logo.jpg" alt="Logo stânga">
+      <h1>MundusCoin</h1>
+      <img src="munduscoin-logo.jpg" alt="Logo dreapta">
+    </div>
     <p>La Criptovaluta dell’Umanità</p>
     <nav>
       <a href="#about">Cos'è</a>
@@ -114,6 +113,9 @@
   <section id="about">
     <h2>Cos'è MundusCoin?</h2>
     <p>MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.</p>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="whitepaper.pdf" download class="download-btn">📄 Descarcă Whitepaper</a>
+    </div>
   </section>
 
   <section id="how">
@@ -121,26 +123,26 @@
     <ul>
       <li><strong>Generazione automatica</strong>: Ogni nuova nascita genera un token.</li>
       <li><strong>Bruciatura</strong>: Ogni morte comporta la distruzione di un token.</li>
-      <li><strong>Distribuzione equa</strong>: Il sistema è pensato per rappresentare simbolicamente ogni essere umano.</li>
+      <li><strong>Distribuzione equa</strong>: Il sistema este simbolic, reprezentând fiecare ființă umană.</li>
     </ul>
   </section>
 
   <section id="roadmap">
     <h2>Roadmap</h2>
     <ul>
-      <li><strong>Q2 2025:</strong> Lancio del sito și contract verificat pe Etherscan</li>
+      <li><strong>Q2 2025:</strong> Lansare site și contract verificat pe Etherscan</li>
       <li><strong>Q3 2025:</strong> Integrare cu Trust Wallet / MetaMask</li>
       <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
-      <li><strong>2026:</strong> Integrare cu date reale de populație via oracles</li>
+      <li><strong>2026:</strong> Oracles conectate la date reale de populație</li>
     </ul>
   </section>
 
   <section id="faq">
     <h2>Domande Frequenti (FAQ)</h2>
     <ul>
-      <li><strong>Chi poate mina token-urile?</strong> Doar creatorul contractului sau o autoritate cu drepturi speciale.</li>
-      <li><strong>Pot cumpăra MUND pe un exchange?</strong> Va fi disponibil pe DEX-uri în viitorul apropiat.</li>
-      <li><strong>Este o investiție?</strong> Este un proiect simbolic, nu un sfat financiar.</li>
+      <li><strong>Cine poate genera token-uri?</strong> Doar contractul original sau o autoritate desemnată.</li>
+      <li><strong>Pot cumpăra MUND pe un exchange?</strong> Va fi disponibil pe DEX-uri curând.</li>
+      <li><strong>Este un proiect financiar?</strong> Este un simbol al umanității, nu un sfat de investiție.</li>
     </ul>
   </section>
 
