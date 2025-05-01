@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MundusCoin</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -19,15 +18,21 @@
             color: #fff;
             text-align: center;
             padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
         }
 
-        #logo {
-            width: 150px;
-            margin-bottom: 1rem;
-            animation: spin 10s linear infinite;
+        #logo-left, #logo-right {
+            width: 80px; /* Dimensiuni logo */
         }
 
-        @keyframes spin {
+        #logo-left {
+            animation: rotateLogo 10s linear infinite;
+        }
+
+        @keyframes rotateLogo {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
@@ -37,7 +42,7 @@
             font-weight: bold;
             margin: 0;
             letter-spacing: 1px;
-            color: #ffd700;
+            color: #FFD700; /* Culoare aurie */
         }
 
         nav {
@@ -114,6 +119,7 @@
 
         @media screen and (max-width: 768px) {
             header {
+                flex-direction: column;
                 padding: 1.5rem;
             }
 
@@ -139,8 +145,9 @@
 <body>
 
     <header>
-        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo">
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left"> <!-- Logo stânga -->
         <h1 id="site-title">MundusCoin</h1>
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right"> <!-- Logo dreapta -->
     </header>
 
     <nav>
@@ -190,47 +197,6 @@
     <footer>
         <p>© 2025 MundusCoin – Indirizzo Contratto: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F</p>
     </footer>
-
-    <script>
-        // Geolocalizarea utilizatorului folosind ipinfo.io
-        fetch('https://ipinfo.io/json')
-            .then(response => response.json())
-            .then(data => {
-                const userCountry = data.country.toLowerCase();
-
-                let lang = 'it'; // Limba implicită (italiană)
-
-                // Setează limba în funcție de țara utilizatorului
-                if (userCountry === 'ro') {
-                    lang = 'ro'; // Limba română
-                } else if (userCountry === 'us' || userCountry === 'gb') {
-                    lang = 'en'; // Limba engleză
-                }
-
-                // Schimbă limba site-ului
-                changeLanguage(lang);
-            })
-            .catch(error => console.log('Eroare la obținerea datelor de geolocalizare: ', error));
-
-        // Funcția care schimbă limba site-ului
-        function changeLanguage(lang) {
-            if (lang === 'ro') {
-                document.querySelector('html').setAttribute('lang', 'ro');
-                document.getElementById('site-title').innerText = 'MundusCoin';
-                document.querySelector('#about h2').innerText = 'Ce este MundusCoin?';
-                document.querySelector('#how h2').innerText = 'Cum Funcționează';
-                document.querySelector('#roadmap h2').innerText = 'Planul de Dezvoltare';
-                document.querySelector('#faq h2').innerText = 'Întrebări Frecvente (FAQ)';
-            } else if (lang === 'en') {
-                document.querySelector('html').setAttribute('lang', 'en');
-                document.getElementById('site-title').innerText = 'MundusCoin';
-                document.querySelector('#about h2').innerText = 'What is MundusCoin?';
-                document.querySelector('#how h2').innerText = 'How It Works';
-                document.querySelector('#roadmap h2').innerText = 'Roadmap';
-                document.querySelector('#faq h2').innerText = 'Frequently Asked Questions (FAQ)';
-            }
-        }
-    </script>
 
 </body>
 </html>
