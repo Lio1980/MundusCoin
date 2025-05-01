@@ -4,182 +4,224 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MundusCoin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #f5f7fa, #dbe9f4);
+      background: linear-gradient(to bottom, #fceabb, #f8b500);
       color: #222;
       line-height: 1.6;
     }
-
     header {
-      background: linear-gradient(135deg, #000000, #1a1a1a);
+      background-color: #000;
       color: white;
       padding: 2rem 1rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .header-flex {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 2rem; /* Am mărit spațiul între imagini */
-      margin-top: 50px; /* Lasă logo-ul mai jos */
     }
-
-    .header-flex img {
-      max-width: 208px; /* Am mărit lățimea logo-ului cu încă 30% */
-      width: 100%;
+    .logo {
+      width: 150px;
       height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
     }
-
-    .title-area {
+    .title-block {
+      flex-grow: 1;
       text-align: center;
-      max-width: 400px;
     }
-
-    .title-area h1 {
-      font-size: 3rem;
+    h1 {
+      font-size: 2.5rem;
       color: gold;
-      font-weight: 900;
-      margin: 0.5rem 0;
-      text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.4);
-    }
-
-    .title-area p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #ccc;
       margin: 0;
     }
-
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
       flex-wrap: wrap;
     }
-
     nav a {
-      color: gold;
-      font-weight: bold;
+      color: white;
       text-decoration: none;
-      font-size: 1rem;
-      border-bottom: 2px solid transparent;
+      font-weight: 600;
     }
-
-    nav a:hover {
-      border-color: gold;
-    }
-
     section {
       padding: 2rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-      background-color: white;
-      margin-top: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-
-    h2 {
-      color: #333;
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 1.5rem;
-    }
-
-    .cta {
-      background-color: #ffcc00;
-      color: #111;
-      padding: 1rem;
-      text-align: center;
-      border-radius: 8px;
-      font-weight: bold;
-      margin: 3rem auto;
       max-width: 800px;
+      margin: 0 auto;
     }
-
-    .cta a {
-      color: #111;
-      text-decoration: underline;
-    }
-
     footer {
-      background-color: #111;
+      background-color: #222;
       color: #aaa;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1rem;
       font-size: 0.9rem;
+    }
+    .lang-select {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    .lang-select button {
+      margin-left: 0.5rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <div class="lang-select">
+    <button onclick="setLanguage('it')">IT</button>
+    <button onclick="setLanguage('ro')">RO</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
   <header>
-    <div class="header-flex">
-      <img src="simbolo-munduscoin.jpg" alt="Logo Stânga">
-      <div class="title-area">
-        <h1>MundusCoin</h1>
-        <p>La Criptovaluta dell’Umanità</p>
-      </div>
-      <img src="simbolo-munduscoin.jpg" alt="Logo Dreapta">
+    <img src="simbolo MundusCoin.jpg" alt="Logo" class="logo">
+    <div class="title-block">
+      <h1>MundusCoin</h1>
+      <p id="subtitle"></p>
     </div>
-    <nav>
-      <a href="#about">Cos'è</a>
-      <a href="#how">Funziona</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#faq">FAQ</a>
-    </nav>
+    <img src="simbolo MundusCoin.jpg" alt="Logo" class="logo">
   </header>
 
+  <nav>
+    <a href="#about" id="nav-about"></a>
+    <a href="#how" id="nav-how"></a>
+    <a href="#roadmap" id="nav-roadmap"></a>
+    <a href="#faq" id="nav-faq"></a>
+  </nav>
+
   <section id="about">
-    <h2>Cos'è MundusCoin?</h2>
-    <p>MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.</p>
+    <h2 id="about-title"></h2>
+    <p id="about-text"></p>
   </section>
 
   <section id="how">
-    <h2>Come Funziona</h2>
-    <ul>
-      <li><strong>Generazione automatica:</strong> Ogni nuova nascita genera un token.</li>
-      <li><strong>Bruciatura:</strong> Ogni morte comporta la distruzione di un token.</li>
-      <li><strong>Distribuzione equa:</strong> Il sistema reprezintă simbolic fiecare ființă umană.</li>
-    </ul>
+    <h2 id="how-title"></h2>
+    <ul id="how-list"></ul>
   </section>
 
   <section id="roadmap">
-    <h2>Roadmap</h2>
-    <ul>
-      <li><strong>Q2 2025:</strong> Lansarea site-ului și contract verificat pe Etherscan</li>
-      <li><strong>Q3 2025:</strong> Integrare cu Trust Wallet / MetaMask</li>
-      <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
-      <li><strong>2026:</strong> Conectare la date reale despre populație prin oracles</li>
-    </ul>
+    <h2 id="roadmap-title"></h2>
+    <ul id="roadmap-list"></ul>
   </section>
 
   <section id="faq">
-    <h2>Domande Frequenti (FAQ)</h2>
-    <ul>
-      <li><strong>Chi poate genera tokenii?</strong> Doar creatorul contractului sau o autoritate desemnată.</li>
-      <li><strong>Pot cumpăra MUND pe un exchange?</strong> Va fi disponibil pe DEX în curând.</li>
-      <li><strong>Este o investiție?</strong> Este un proiect simbolic, nu un sfat financiar.</li>
-    </ul>
+    <h2 id="faq-title"></h2>
+    <ul id="faq-list"></ul>
   </section>
 
-  <div class="cta">
-    Vezi contractul pe <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a>
-  </div>
+  <footer id="footer"></footer>
 
-  <footer>
-    © 2025 MundusCoin – Contract: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F
-  </footer>
+  <script>
+    const translations = {
+      it: {
+        subtitle: "La Criptovaluta dell’Umanità",
+        nav: ["Cos'è", "Funziona", "Roadmap", "FAQ"],
+        aboutTitle: "Cos'è MundusCoin?",
+        aboutText: "MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione.",
+        howTitle: "Come Funziona",
+        howList: [
+          "Generazione automatica: Ogni nuova nascita genera un token.",
+          "Bruciatura: Ogni morte comporta la distruzione di un token.",
+          "Distribuzione equa: Il sistema è pensato per rappresentare simbolicamente ogni essere umano."
+        ],
+        roadmapTitle: "Roadmap",
+        roadmapList: [
+          "Q2 2025: Lancio del sito e contratto verificato su Etherscan",
+          "Q3 2025: Integrazione cu Trust Wallet / MetaMask",
+          "Q4 2025: Comunitate globală & listare pe DEX-uri",
+          "2026: Integrare cu date reale de populație via oracles"
+        ],
+        faqTitle: "Domande Frequenti (FAQ)",
+        faqList: [
+          "Chi può minare i token? Solo il creatore del contratto o un'autorità con diritti speciali.",
+          "Posso acquistare MUND su un exchange? Sarà disponibile su DEX nel prossimo futuro.",
+          "È un investimento? È un progetto simbolico, non un consiglio finanziario."
+        ],
+        footer: "© 2025 MundusCoin – Adresa Contractului: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F"
+      },
+      ro: {
+        subtitle: "Criptomoneda Umanității",
+        nav: ["Ce este", "Cum funcționează", "Plan", "Întrebări"],
+        aboutTitle: "Ce este MundusCoin?",
+        aboutText: "MundusCoin pornește de la o idee simplă: o naștere = o monedă. O moarte = o distrugere.",
+        howTitle: "Cum funcționează",
+        howList: [
+          "Generare automată: Fiecare nouă naștere generează un token.",
+          "Ardere: Fiecare moarte duce la distrugerea unui token.",
+          "Distribuție echitabilă: Sistemul reprezintă simbolic fiecare om."
+        ],
+        roadmapTitle: "Plan de dezvoltare",
+        roadmapList: [
+          "Trim. 2 2025: Lansare site și contract verificat pe Etherscan",
+          "Trim. 3 2025: Integrare cu Trust Wallet / MetaMask",
+          "Trim. 4 2025: Comunitate globală & listare pe DEX-uri",
+          "2026: Integrare cu date reale de populație prin oracles"
+        ],
+        faqTitle: "Întrebări frecvente",
+        faqList: [
+          "Cine poate mina token-urile? Doar creatorul contractului sau o autoritate autorizată.",
+          "Pot cumpăra MUND pe un exchange? Va fi disponibil în curând pe DEX.",
+          "Este o investiție? Este un proiect simbolic, nu un sfat financiar."
+        ],
+        footer: "© 2025 MundusCoin – Adresă Contract: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F"
+      },
+      en: {
+        subtitle: "The Cryptocurrency of Humanity",
+        nav: ["What it is", "How it works", "Roadmap", "FAQ"],
+        aboutTitle: "What is MundusCoin?",
+        aboutText: "MundusCoin is based on a simple idea: one birth = one coin. One death = one burn.",
+        howTitle: "How It Works",
+        howList: [
+          "Automatic Generation: Each new birth generates a token.",
+          "Burning: Each death results in one token destroyed.",
+          "Fair Distribution: Symbolic representation of every human being."
+        ],
+        roadmapTitle: "Roadmap",
+        roadmapList: [
+          "Q2 2025: Website launch and verified contract on Etherscan",
+          "Q3 2025: Integration with Trust Wallet / MetaMask",
+          "Q4 2025: Global community & DEX listing",
+          "2026: Integration with real population data via oracles"
+        ],
+        faqTitle: "Frequently Asked Questions (FAQ)",
+        faqList: [
+          "Who can mint tokens? Only the contract creator or an authorized entity.",
+          "Can I buy MUND on an exchange? It will be available on DEX soon.",
+          "Is it an investment? It's a symbolic project, not financial advice."
+        ],
+        footer: "© 2025 MundusCoin – Contract Address: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F"
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations['it'];
+      document.getElementById('subtitle').innerText = t.subtitle;
+      document.getElementById('nav-about').innerText = t.nav[0];
+      document.getElementById('nav-how').innerText = t.nav[1];
+      document.getElementById('nav-roadmap').innerText = t.nav[2];
+      document.getElementById('nav-faq').innerText = t.nav[3];
+      document.getElementById('about-title').innerText = t.aboutTitle;
+      document.getElementById('about-text').innerText = t.aboutText;
+      document.getElementById('how-title').innerText = t.howTitle;
+      document.getElementById('how-list').innerHTML = t.howList.map(i => `<li>${i}</li>`).join('');
+      document.getElementById('roadmap-title').innerText = t.roadmapTitle;
+      document.getElementById('roadmap-list').innerHTML = t.roadmapList.map(i => `<li>${i}</li>`).join('');
+      document.getElementById('faq-title').innerText = t.faqTitle;
+      document.getElementById('faq-list').innerHTML = t.faqList.map(i => `<li>${i}</li>`).join('');
+      document.getElementById('footer').innerText = t.footer;
+    }
+
+    // Detect language
+    const browserLang = navigator.language.slice(0, 2);
+    setLanguage(browserLang);
+  </script>
 </body>
 </html>
