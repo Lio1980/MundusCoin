@@ -11,51 +11,36 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      background-color: #f9f9f9;
       color: #222;
       line-height: 1.6;
     }
     header {
-      background: #000;
+      background-color: #000;
       color: white;
       text-align: center;
-      padding: 2rem 1rem 1rem;
-      position: relative;
+      padding: 2rem 1rem;
     }
-    .logo-left, .logo-right {
+    header img {
       width: 130px;
-      position: absolute;
-      top: 1rem;
-    }
-    .logo-left {
-      left: 1rem;
-    }
-    .logo-right {
-      right: 1rem;
-    }
-    .logo-center {
-      max-width: 200px;
+      height: 130px;
       border-radius: 50%;
     }
     h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0 0;
-      color: gold;
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+      color: #FFD700;
     }
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
       margin-top: 1rem;
-      flex-wrap: wrap;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: 600;
-    }
-    .language-selector {
-      margin-top: 1rem;
     }
     section {
       padding: 2rem 1rem;
@@ -63,6 +48,7 @@
       margin: 0 auto;
     }
     h2 {
+      margin-top: 0;
       color: #333;
     }
     footer {
@@ -72,6 +58,19 @@
       padding: 1rem;
       font-size: 0.9rem;
     }
+    .cta {
+      background-color: #0070f3;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    .cta a {
+      color: white;
+      text-decoration: underline;
+      font-weight: bold;
+    }
     ul {
       padding-left: 1.2rem;
     }
@@ -79,112 +78,86 @@
 </head>
 <body>
   <header>
-    <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" class="logo-left" />
-    <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" class="logo-right" />
-    <img src="simbolo-munduscoin.jpg" alt="MundusCoin" class="logo-center" />
+    <img src="simbolo-munduscoin.jpg" alt="MundusCoin Logo">
     <h1>MundusCoin</h1>
-    <p id="subtitle">La Criptovaluta dell’Umanità</p>
+    <p data-it="La Criptovaluta dell’Umanità" data-ro="Criptomoneda a Umanității" data-en="The Cryptocurrency of Humanity"></p>
     <nav>
-      <a href="#about">Cos'è</a>
-      <a href="#how">Funziona</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#faq">FAQ</a>
+      <a href="#about" data-it="Cos'è" data-ro="Ce este" data-en="What is">Cos'è</a>
+      <a href="#how" data-it="Come Funziona" data-ro="Cum funcționează" data-en="How it Works">Come Funziona</a>
+      <a href="#roadmap" data-it="Roadmap" data-ro="Planul de dezvoltare" data-en="Roadmap">Roadmap</a>
+      <a href="#faq" data-it="FAQ" data-ro="Întrebări frecvente" data-en="FAQ">FAQ</a>
     </nav>
-    <div class="language-selector">
-      <label for="lang">Lingua:</label>
-      <select id="lang" onchange="changeLanguage(this.value)">
-        <option value="it">Italiano</option>
-        <option value="ro">Română</option>
-        <option value="en">English</option>
-      </select>
-    </div>
   </header>
 
   <section id="about">
-    <h2>Cos'è MundusCoin?</h2>
-    <p data-it="MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale."
-       data-ro="MundusCoin pornește de la o idee simplă: o naștere = o monedă. Un deces = o distrugere. Numărul de tokenuri este mereu legat de populația globală."
-       data-en="MundusCoin starts with a simple idea: one birth = one coin. One death = one burn. The number of tokens is always linked to the global population.">
-      MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.
-    </p>
+    <h2 data-it="Cos'è MundusCoin?" data-ro="Ce este MundusCoin?" data-en="What is MundusCoin?">Cos'è MundusCoin?</h2>
+    <p data-it="MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale." 
+       data-ro="MundusCoin a fost creat cu o idee simplă: o naștere = o monedă. O moarte = o distrugere. Numărul de token-uri este întotdeauna legat de populația globală." 
+       data-en="MundusCoin was born with a simple idea: a birth = a coin. A death = a destruction. The number of tokens is always tied to the global population.">MundusCoin nasce con un’idea semplice...</p>
   </section>
 
   <section id="how">
-    <h2>Come Funziona</h2>
+    <h2 data-it="Come Funziona" data-ro="Cum funcționează" data-en="How it Works">Come Funziona</h2>
     <ul>
-      <li data-it="Generazione automatica: Ogni nuova nascita genera un token."
-          data-ro="Generare automată: Fiecare nouă naștere generează un token."
-          data-en="Automatic generation: Every new birth generates a token.">
-        Generazione automatica: Ogni nuova nascita genera un token.
-      </li>
-      <li data-it="Bruciatura: Ogni morte comporta la distruzione di un token."
-          data-ro="Ardere: Fiecare deces duce la distrugerea unui token."
-          data-en="Burning: Every death results in the destruction of a token.">
-        Bruciatura: Ogni morte comporta la distruzione di un token.
-      </li>
-      <li data-it="Distribuzione equa: Il sistema rappresenta simbolicamente ogni essere umano."
-          data-ro="Distribuție echitabilă: Sistemul reprezintă simbolic fiecare om."
-          data-en="Fair distribution: The system symbolically represents every human.">
-        Distribuzione equa: Il sistema rappresenta simbolicamente ogni essere umano.
-      </li>
+      <li><strong data-it="Generazione automatica" data-ro="Generare automată" data-en="Automatic Generation">Generazione automatica</strong>: Ogni nuova nascita genera un token.</li>
+      <li><strong data-it="Bruciatura" data-ro="Distrugerea" data-en="Burning">Bruciatura</strong>: Ogni morte comporta la distruzione di un token.</li>
+      <li><strong data-it="Distribuzione equa" data-ro="Distribuție echitabilă" data-en="Fair Distribution">Distribuzione equa</strong>: Il sistema è pensato per rappresentare simbolicamente ogni essere umano.</li>
     </ul>
   </section>
 
   <section id="roadmap">
-    <h2>Roadmap</h2>
+    <h2 data-it="Roadmap" data-ro="Planul de dezvoltare" data-en="Roadmap">Roadmap</h2>
     <ul>
-      <li data-it="Q2 2025: Lancio del sito e contratto verificato su Etherscan"
-          data-ro="Q2 2025: Lansarea site-ului și contract verificat pe Etherscan"
-          data-en="Q2 2025: Website launch and verified contract on Etherscan">
-        Q2 2025: Lancio del sito e contratto verificato su Etherscan
-      </li>
-      <li data-it="Q3 2025: Integrazione con Trust Wallet e MetaMask"
-          data-ro="Q3 2025: Integrare cu Trust Wallet și MetaMask"
-          data-en="Q3 2025: Integration with Trust Wallet and MetaMask">
-        Q3 2025: Integrazione con Trust Wallet e MetaMask
-      </li>
-      <li data-it="Q4 2025: Comunità globale e listaggio su DEX"
-          data-ro="Q4 2025: Comunitate globală și listare pe DEX-uri"
-          data-en="Q4 2025: Global community and DEX listing">
-        Q4 2025: Comunità globale e listaggio su DEX
-      </li>
-      <li data-it="2026: Integrazione con dati reali sulla popolazione tramite oracoli"
-          data-ro="2026: Integrare cu date reale de populație prin oracles"
-          data-en="2026: Integration with real population data via oracles">
-        2026: Integrazione con dati reali sulla popolazione tramite oracoli
-      </li>
+      <li><strong data-it="Q2 2025" data-ro="T2 2025" data-en="Q2 2025">Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan</li>
+      <li><strong data-it="Q3 2025" data-ro="T3 2025" data-en="Q3 2025">Q3 2025:</strong> Integrazione cu Trust Wallet / MetaMask</li>
+      <li><strong data-it="Q4 2025" data-ro="T4 2025" data-en="Q4 2025">Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
+      <li><strong data-it="2026" data-ro="2026" data-en="2026">2026:</strong> Integrare cu date reale de populație via oracles</li>
     </ul>
   </section>
 
   <section id="faq">
-    <h2>Domande Frequenti (FAQ)</h2>
+    <h2 data-it="Domande Frequenti (FAQ)" data-ro="Întrebări frecvente (FAQ)" data-en="Frequently Asked Questions (FAQ)">Domande Frequenti (FAQ)</h2>
     <ul>
-      <li data-it="Chi può minare i token? Solo il creatore del contratto o un'autorità con diritti speciali."
-          data-ro="Cine poate mina tokenuri? Doar creatorul contractului sau o autoritate specială."
-          data-en="Who can mint tokens? Only the contract creator or an authorized entity.">
-        Chi può minare i token? Solo il creatore del contratto o un'autorità con diritti speciali.
-      </li>
-      <li data-it="Posso acquistare MUND su un exchange? Sarà disponibile su DEX nel prossimo futuro."
-          data-ro="Pot cumpăra MUND pe un exchange? Va fi disponibil în curând pe DEX."
-          data-en="Can I buy MUND on an exchange? It will be available soon on DEX.">
-        Posso acquistare MUND su un exchange? Sarà disponibile su DEX nel prossimo futuro.
-      </li>
-      <li data-it="È un investimento? È un progetto simbolico, non un consiglio finanziario."
-          data-ro="Este o investiție? Este un proiect simbolic, nu un sfat financiar."
-          data-en="Is this an investment? It’s a symbolic project, not financial advice.">
-        È un investimento? È un progetto simbolico, non un consiglio finanziario.
-      </li>
+      <li><strong data-it="Chi può minare i token?" data-ro="Cine poate mina token-urile?" data-en="Who can mine tokens?">Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità con diritti speciali.</li>
+      <li><strong data-it="Posso acquistare MUND su un exchange?" data-ro="Pot cumpăra MUND pe un exchange?" data-en="Can I buy MUND on an exchange?">Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
+      <li><strong data-it="È un investimento?" data-ro="Este un investment?" data-en="Is it an investment?">È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
     </ul>
   </section>
 
+  <div class="cta">
+    <p>Scopri il contratto su <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
+  </div>
+
   <footer>
-    © 2025 MundusCoin – Contratto: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F
+    © 2025 MundusCoin – Adresa Contractului: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F
   </footer>
 
   <script>
+    // Geolocalizare utilizator pe baza IP-ului
+    fetch('http://ip-api.com/json')
+      .then(response => response.json())
+      .then(data => {
+        const userCountry = data.country.toLowerCase();
+
+        // Limba implicită
+        let lang = 'it';
+
+        // Definirea limbii pe baza țării
+        if (userCountry === 'romania') {
+          lang = 'ro';
+        } else if (userCountry === 'united states' || userCountry === 'uk') {
+          lang = 'en';
+        }
+
+        // Schimbă limba
+        changeLanguage(lang);
+      })
+      .catch(error => console.error('Eroare la obținerea datelor de geolocalizare: ', error));
+    
     function changeLanguage(lang) {
-      document.querySelectorAll('[data-it]').forEach(el => {
-        el.textContent = el.dataset[lang] || el.dataset['it'];
+      const elements = document.querySelectorAll('[data-' + lang + ']');
+      elements.forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + lang);
       });
     }
   </script>
