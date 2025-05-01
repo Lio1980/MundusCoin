@@ -1,106 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MundusCoin</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
+      background: linear-gradient(to bottom, #f5f7fa, #dbe9f4);
       color: #222;
       line-height: 1.6;
     }
+
     header {
-      background-color: #000;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
       color: white;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
       text-align: center;
+      position: relative;
     }
-    .logo-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .logo-row img {
-      width: 80px;
+
+    header img {
+      max-width: 180px;
+      width: 100%;
       height: auto;
-      border-radius: 50%;
+      margin: 1rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
     }
-    .logo-row h1 {
-      font-size: 2.5rem;
-      margin: 0;
+
+    h1 {
+      font-size: 3rem;
+      color: gold;
+      font-weight: 900;
+      margin: 0.5rem 0;
+      text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.4);
     }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #ccc;
+    }
+
     nav {
-      margin-top: 1rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
     }
+
     nav a {
-      color: white;
+      color: gold;
+      font-weight: bold;
       text-decoration: none;
-      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
     }
+
+    nav a:hover {
+      border-color: gold;
+    }
+
     section {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
+      background-color: white;
+      margin-top: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
+
     h2 {
       color: #333;
+      margin-top: 0;
     }
-    .download-btn {
-      display: inline-block;
-      background-color: #0070f3;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+
+    ul {
+      padding-left: 1.5rem;
     }
-    .download-btn:hover {
-      background-color: #005bb5;
-    }
-    footer {
-      background-color: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
+
     .cta {
-      background-color: #0070f3;
-      color: white;
+      background-color: #ffcc00;
+      color: #111;
       padding: 1rem;
       text-align: center;
       border-radius: 8px;
-      margin: 2rem 0;
-    }
-    .cta a {
-      color: white;
-      text-decoration: underline;
       font-weight: bold;
+      margin: 3rem auto;
+      max-width: 800px;
     }
-    ul {
-      padding-left: 1.2rem;
+
+    .cta a {
+      color: #111;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-row">
-      <img src="munduscoin-logo.jpg" alt="Logo stânga">
-      <h1>MundusCoin</h1>
-      <img src="munduscoin-logo.jpg" alt="Logo dreapta">
-    </div>
+    <img src="simbolo-munduscoin.jpg" alt="MundusCoin Logo">
+    <h1>MundusCoin</h1>
     <p>La Criptovaluta dell’Umanità</p>
     <nav>
       <a href="#about">Cos'è</a>
@@ -113,41 +125,38 @@
   <section id="about">
     <h2>Cos'è MundusCoin?</h2>
     <p>MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.</p>
-    <div style="text-align: center; margin-top: 2rem;">
-      <a href="whitepaper.pdf" download class="download-btn">📄 Descarcă Whitepaper</a>
-    </div>
   </section>
 
   <section id="how">
     <h2>Come Funziona</h2>
     <ul>
-      <li><strong>Generazione automatica</strong>: Ogni nuova nascita genera un token.</li>
-      <li><strong>Bruciatura</strong>: Ogni morte comporta la distruzione di un token.</li>
-      <li><strong>Distribuzione equa</strong>: Il sistema este simbolic, reprezentând fiecare ființă umană.</li>
+      <li><strong>Generazione automatica:</strong> Ogni nuova nascita genera un token.</li>
+      <li><strong>Bruciatura:</strong> Ogni morte comporta la distruzione di un token.</li>
+      <li><strong>Distribuzione equa:</strong> Il sistema rappresenta simbolicamente ogni essere umano.</li>
     </ul>
   </section>
 
   <section id="roadmap">
     <h2>Roadmap</h2>
     <ul>
-      <li><strong>Q2 2025:</strong> Lansare site și contract verificat pe Etherscan</li>
-      <li><strong>Q3 2025:</strong> Integrare cu Trust Wallet / MetaMask</li>
+      <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan</li>
+      <li><strong>Q3 2025:</strong> Integrazione cu Trust Wallet / MetaMask</li>
       <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
-      <li><strong>2026:</strong> Oracles conectate la date reale de populație</li>
+      <li><strong>2026:</strong> Integrare cu date reale de populație via oracles</li>
     </ul>
   </section>
 
   <section id="faq">
     <h2>Domande Frequenti (FAQ)</h2>
     <ul>
-      <li><strong>Cine poate genera token-uri?</strong> Doar contractul original sau o autoritate desemnată.</li>
-      <li><strong>Pot cumpăra MUND pe un exchange?</strong> Va fi disponibil pe DEX-uri curând.</li>
-      <li><strong>Este un proiect financiar?</strong> Este un simbol al umanității, nu un sfat de investiție.</li>
+      <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità cu drepturi speciale.</li>
+      <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibil pe DEX curând.</li>
+      <li><strong>È un investimento?</strong> Este un proiect simbolic, non un consiglio finanziario.</li>
     </ul>
   </section>
 
   <div class="cta">
-    <p>Vezi contractul pe <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
+    Vezi contractul pe <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a>
   </div>
 
   <footer>
