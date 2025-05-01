@@ -1,213 +1,203 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MundusCoin</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundusCoin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
-    /* Zona albastru inchis pentru criptomonede */
-    .crypto-scroll-container {
-      background-color: #003366; /* Albastru închis */
-      color: #fff;
-      overflow: hidden;
-      white-space: nowrap;
-      padding: 10px 0;
-      font-size: 18px;
-    }
+        header {
+            background-color: #2c3e50; /* Fundal albastru închis */
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-direction: row;
+            position: relative;
+            z-index: 10;
+        }
 
-    .crypto-scroll {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 20s linear infinite;
-    }
+        #logo-left, #logo-right {
+            width: 180px; /* Logo mărit cu 50% față de varianta anterioară */
+        }
 
-    .crypto-item {
-      margin-right: 50px;
-      font-weight: bold;
-    }
+        h1 {
+            font-size: 4.5rem; /* Textul „MundusCoin” mărit */
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+            color: #D4AF37; /* Auriu cald */
+        }
 
-    /* Animatie scroll pentru criptomonede */
-    @keyframes scroll-left {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            background-color: #2c3e50; /* Fundal albastru închis */
+            padding: 1rem 0;
+            width: 100%;
+        }
 
-    /* Stilizare pentru header */
-    header {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
 
-    header img {
-      width: 150px; /* Mărirea logo-ului */
-      height: auto;
-      border-radius: 50%;
-    }
+        nav a:hover {
+            color: #FFD700;
+        }
 
-    h1 {
-      font-size: 3rem;
-      margin-top: 1rem;
-      color: #FFD700; /* Auriu pentru text */
-    }
+        /* Secțiunile de conținut vor avea fundal albastru deschis */
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #3498db; /* Fundal albastru deschis pentru secțiuni */
+            color: white;
+        }
 
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
-    }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FFD700; /* Auriu pentru titluri */
+            font-weight: 600;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-    }
+        section p, ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
 
-    section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+        ul {
+            list-style-type: square;
+            margin-left: 2rem;
+        }
 
-    h2 {
-      margin-top: 0;
-      color: #333;
-    }
+        .cta {
+            background-color: #4a90e2;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 3rem 0;
+            font-size: 1.2rem;
+        }
 
-    footer {
-      background-color: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
+        .cta a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-    .cta {
-      background-color: #0070f3;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      border-radius: 8px;
-      margin: 2rem 0;
-    }
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1rem;
+        }
 
-    .cta a {
-      color: white;
-      text-decoration: underline;
-      font-weight: bold;
-    }
+        footer p {
+            margin: 0;
+        }
 
-    ul {
-      padding-left: 1.2rem;
-    }
-  </style>
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 4rem 1rem; /* Ajustăm padding-ul pentru telefoane */
+            }
+
+            h1 {
+                font-size: 3rem; /* Ajustăm fontul pentru „MundusCoin” pe mobil */
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Zona de criptomonede cu scroll -->
-  <div class="crypto-scroll-container">
-    <div id="crypto-scroll" class="crypto-scroll"></div>
-  </div>
+    <header>
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left"> <!-- Logo stânga -->
+        <h1 id="site-title">MundusCoin</h1>
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right"> <!-- Logo dreapta -->
+    </header>
 
-  <!-- Header cu logo si numele MundusCoin -->
-  <header>
-    <img src="simbolo-munduscoin.jpg" alt="MundusCoin Logo">
-    <h1>MundusCoin</h1>
-    <p>La Criptovaluta dell’Umanità</p>
+    <!-- Secțiunea de navigare cu trimiterile -->
     <nav>
-      <a href="#about">Cos'è</a>
-      <a href="#how">Funziona</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#faq">FAQ</a>
+        <a href="#about">Cos'è MundusCoin</a>
+        <a href="#how">Come Funziona</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
     </nav>
-  </header>
 
-  <section id="about">
-    <h2>Cos'è MundusCoin?</h2>
-    <p>MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.</p>
-  </section>
+    <section id="about">
+        <h2>Cos'è MundusCoin?</h2>
+        <p>MundusCoin è una criptovaluta unica che nasce per rappresentare ogni essere umano sulla Terra.</p>
+    </section>
 
-  <section id="how">
-    <h2>Come Funziona</h2>
-    <ul>
-      <li><strong>Generazione automatica</strong>: Ogni nuova nascita genera un token.</li>
-      <li><strong>Bruciatura</strong>: Ogni morte comporta la distruzione di un token.</li>
-      <li><strong>Distribuzione equa</strong>: Il sistema è pensato per rappresentare simbolicamente ogni essere umano.</li>
-    </ul>
-  </section>
+    <section id="how">
+        <h2>Come Funziona</h2>
+        <ul>
+            <li><strong>Generazione automatica:</strong> Ogni nuova nascita genera un token.</li>
+            <li><strong>Bruciatura:</strong> Ogni morte distrugge un token.</li>
+            <li><strong>Distribuzione equa:</strong> Ogni token rappresenta simbolicamente un essere umano.</li>
+        </ul>
+    </section>
 
-  <section id="roadmap">
-    <h2>Roadmap</h2>
-    <ul>
-      <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan</li>
-      <li><strong>Q3 2025:</strong> Integrazione cu Trust Wallet / MetaMask</li>
-      <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
-      <li><strong>2026:</strong> Integrare cu date reale de populație via oracles</li>
-    </ul>
-  </section>
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <ul>
+            <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan.</li>
+            <li><strong>Q3 2025:</strong> Integrazione con Trust Wallet / MetaMask.</li>
+            <li><strong>Q4 2025:</strong> Comunità globale e listaggio su DEX.</li>
+            <li><strong>2026:</strong> Integrazione con dati reali sulla popolazione globale tramite oracoli.</li>
+        </ul>
+    </section>
 
-  <section id="faq">
-    <h2>Domande Frequenti (FAQ)</h2>
-    <ul>
-      <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità con diritti speciali.</li>
-      <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
-      <li><strong>È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
-    </ul>
-  </section>
+    <section id="faq">
+        <h2>Domande Frequenti (FAQ)</h2>
+        <ul>
+            <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità con diritti speciali.</li>
+            <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
+            <li><strong>È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
+        </ul>
+    </section>
 
-  <div class="cta">
-    <p>Scopri il contratto su <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
-  </div>
+    <div class="cta">
+        <p>Scopri di più su MundusCoin e il contratto su <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
+    </div>
 
-  <footer>
-    © 2025 MundusCoin – Adresa Contractului: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F
-  </footer>
-
-  <script>
-    async function fetchCryptoPrices() {
-      const apiKey = '54e5ec31-5bb0-459d-bf0e-3ae1047dad17'; // Cheia ta API
-      const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&convert=USD'; // Limita criptomonedelor (poți modifica limita)
-
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'X-CMC_PRO_API_KEY': apiKey,
-            'Accept': 'application/json',
-          },
-        });
-        const data = await response.json();
-        const cryptoScrollElement = document.getElementById('crypto-scroll');
-
-        // Curăță conținutul existent în zona de scroll
-        cryptoScrollElement.innerHTML = '';
-
-        // Adaugă criptomonedele și prețurile la scroll
-        data.data.forEach(crypto => {
-          const cryptoItem = document.createElement('div');
-          cryptoItem.classList.add('crypto-item');
-          cryptoItem.innerHTML = `${crypto.name} (${crypto.symbol}): $${crypto.quote.USD.price.toFixed(2)}`;
-          cryptoScrollElement.appendChild(cryptoItem);
-        });
-      } catch (error) {
-        console.error('Eroare la obținerea datelor criptomonedelor:', error);
-      }
-    }
-
-    // Lansează funcția de preluare a criptomonedelor la încărcarea paginii
-    fetchCryptoPrices();
-  </script>
+    <footer>
+        <p>© 2025 MundusCoin – Indirizzo Contratto: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F</p>
+    </footer>
 
 </body>
 </html>
