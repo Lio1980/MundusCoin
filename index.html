@@ -17,21 +17,33 @@
     header {
       background: linear-gradient(135deg, #000000, #1a1a1a);
       color: white;
-      padding: 3rem 1rem;
+      padding: 2rem 1rem;
       text-align: center;
       position: relative;
     }
 
-    header img {
-      max-width: 180px;
-      width: 100%;
-      height: auto;
-      margin: 1rem auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    h1 {
+    .header-flex img {
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+
+    .title-area {
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .title-area h1 {
       font-size: 3rem;
       color: gold;
       font-weight: 900;
@@ -39,10 +51,11 @@
       text-shadow: 1px 1px 5px rgba(255, 215, 0, 0.4);
     }
 
-    header p {
+    .title-area p {
       font-size: 1.2rem;
       font-weight: 500;
       color: #ccc;
+      margin: 0;
     }
 
     nav {
@@ -111,9 +124,14 @@
 </head>
 <body>
   <header>
-    <img src="simbolo-munduscoin.jpg" alt="MundusCoin Logo">
-    <h1>MundusCoin</h1>
-    <p>La Criptovaluta dell’Umanità</p>
+    <div class="header-flex">
+      <img src="simbolo-munduscoin.jpg" alt="Logo Stânga">
+      <div class="title-area">
+        <h1>MundusCoin</h1>
+        <p>La Criptovaluta dell’Umanità</p>
+      </div>
+      <img src="simbolo-munduscoin.jpg" alt="Logo Dreapta">
+    </div>
     <nav>
       <a href="#about">Cos'è</a>
       <a href="#how">Funziona</a>
@@ -132,26 +150,26 @@
     <ul>
       <li><strong>Generazione automatica:</strong> Ogni nuova nascita genera un token.</li>
       <li><strong>Bruciatura:</strong> Ogni morte comporta la distruzione di un token.</li>
-      <li><strong>Distribuzione equa:</strong> Il sistema rappresenta simbolicamente ogni essere umano.</li>
+      <li><strong>Distribuzione equa:</strong> Il sistema reprezintă simbolic fiecare ființă umană.</li>
     </ul>
   </section>
 
   <section id="roadmap">
     <h2>Roadmap</h2>
     <ul>
-      <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan</li>
-      <li><strong>Q3 2025:</strong> Integrazione cu Trust Wallet / MetaMask</li>
+      <li><strong>Q2 2025:</strong> Lansarea site-ului și contract verificat pe Etherscan</li>
+      <li><strong>Q3 2025:</strong> Integrare cu Trust Wallet / MetaMask</li>
       <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
-      <li><strong>2026:</strong> Integrare cu date reale de populație via oracles</li>
+      <li><strong>2026:</strong> Conectare la date reale despre populație prin oracles</li>
     </ul>
   </section>
 
   <section id="faq">
     <h2>Domande Frequenti (FAQ)</h2>
     <ul>
-      <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità cu drepturi speciale.</li>
-      <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibil pe DEX curând.</li>
-      <li><strong>È un investimento?</strong> Este un proiect simbolic, non un consiglio finanziario.</li>
+      <li><strong>Chi poate genera tokenii?</strong> Doar creatorul contractului sau o autoritate desemnată.</li>
+      <li><strong>Pot cumpăra MUND pe un exchange?</strong> Va fi disponibil pe DEX în curând.</li>
+      <li><strong>Este o investiție?</strong> Este un proiect simbolic, nu un sfat financiar.</li>
     </ul>
   </section>
 
