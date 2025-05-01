@@ -17,23 +17,24 @@
             background-color: #2c3e50; /* Fundal albastru închis */
             color: #fff;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 1rem; /* Am mărit padding-ul pentru a acoperi mai mult din ecran */
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 1rem;
+            flex-direction: row;
         }
 
         #logo-left, #logo-right {
-            width: 80px; /* Dimensiuni logo */
+            width: 120px; /* Logo mărit cu 50% față de varianta anterioară */
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem; /* Am mărit și textul pentru "MundusCoin" */
             font-weight: bold;
             margin: 0;
             letter-spacing: 1px;
-            color: #B0B0B0; /* Culoare aurie cu tentă gri */
+            color: #FFD700; /* Culoare auriu mai intensă */
         }
 
         nav {
@@ -111,11 +112,11 @@
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
-                padding: 1.5rem;
+                padding: 3rem 1rem; /* Ajustăm padding-ul pentru telefoane */
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem; /* Ajustăm fontul pentru ecrane mici */
             }
 
             nav {
