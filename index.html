@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +64,10 @@
         const data = await response.json();
         const cryptoScrollElement = document.getElementById('crypto-scroll');
 
+        // Curățăm orice element existent înainte de a adăuga date noi
+        cryptoScrollElement.innerHTML = '';
+
+        // Creăm și adăugăm elementele pentru fiecare criptomonedă
         data.data.forEach(crypto => {
           const cryptoItem = document.createElement('div');
           cryptoItem.classList.add('crypto-item');
@@ -74,6 +79,7 @@
       }
     }
 
+    // Lansează funcția la încărcarea paginii
     fetchCryptoPrices();
   </script>
 
