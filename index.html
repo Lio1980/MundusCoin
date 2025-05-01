@@ -20,6 +20,7 @@
       color: white;
       text-align: center;
       padding: 2rem 1rem 1rem;
+      position: relative;
     }
     .logo-row {
       display: flex;
@@ -29,9 +30,14 @@
       margin-bottom: 1rem;
     }
     .logo-row img {
-      width: 200px;
+      width: 260px;
       height: auto;
-      margin-top: 20px;
+      margin-top: 30px;
+      animation: spin 20s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
     h1 {
       font-size: 2.5rem;
