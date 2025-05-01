@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -117,6 +118,39 @@
             margin: 0;
         }
 
+        /* Scroller pentru criptomonede */
+        .crypto-ticker {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .crypto-ticker ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            animation: ticker 30s linear infinite;
+        }
+
+        .crypto-ticker li {
+            margin-right: 2rem;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -149,6 +183,13 @@
         <h1 id="site-title">MundusCoin</h1>
         <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right"> <!-- Logo dreapta -->
     </header>
+
+    <!-- Scroller pentru criptomonede -->
+    <div class="crypto-ticker">
+        <ul id="crypto-list">
+            <!-- Prețurile criptomonedelor vor apărea aici -->
+        </ul>
+    </div>
 
     <!-- Secțiunea de navigare cu trimiterile -->
     <nav>
@@ -198,6 +239,33 @@
     <footer>
         <p>© 2025 MundusCoin – Indirizzo Contratto: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F</p>
     </footer>
+
+    <script>
+        const apiKey = '54e5ec31-5bb0-459d-bf0e-3ae1047dad17';
+        const cryptoList = document.getElementById("crypto-list");
+
+        async function fetchCryptoPrices() {
+            const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=5&convert=USD`;
+            const response = await fetch(url, {
+                headers: {
+                    'X-CMC_PRO_API_KEY': apiKey,
+                    'Accept': 'application/json'
+                }
+            });
+            const data = await response.json();
+            const cryptos = data.data;
+            cryptoList.innerHTML = '';
+
+            cryptos.forEach(crypto => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${crypto.name}: $${crypto.quote.USD.price.toFixed(2)}`;
+                cryptoList.appendChild(listItem);
+            });
+        }
+
+        fetchCryptoPrices();
+        setInterval(fetchCryptoPrices, 60000); // Actualizează prețurile la fiecare minut
+    </script>
 
 </body>
 </html>
