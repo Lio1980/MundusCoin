@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MundusCoin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    header img {
+      width: 100px;
+      border-radius: 50%;
+    }
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+    .cta {
+      background-color: #0070f3;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    .cta a {
+      color: white;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="simbolo MundusCoin.jpg" alt="MundusCoin Logo">
+    <h1>MundusCoin</h1>
+    <p>La Criptovaluta dell’Umanità</p>
+    <nav>
+      <a href="#about">Cos'è</a>
+      <a href="#how">Funziona</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>Cos'è MundusCoin?</h2>
+    <p>MundusCoin nasce con un’idea semplice: una nascita = una moneta. Una morte = una distruzione. Il numero di token è sempre legato alla popolazione globale.</p>
+  </section>
+
+  <section id="how">
+    <h2>Come Funziona</h2>
+    <ul>
+      <li><strong>Generazione automatica</strong>: Ogni nuova nascita genera un token.</li>
+      <li><strong>Bruciatura</strong>: Ogni morte comporta la distruzione di un token.</li>
+      <li><strong>Distribuzione equa</strong>: Il sistema è pensato per rappresentare simbolicamente ogni essere umano.</li>
+    </ul>
+  </section>
+
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <ul>
+      <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan</li>
+      <li><strong>Q3 2025:</strong> Integrazione cu Trust Wallet / MetaMask</li>
+      <li><strong>Q4 2025:</strong> Comunitate globală & listare pe DEX-uri</li>
+      <li><strong>2026:</strong> Integrare cu date reale de populație via oracles</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>Domande Frequenti (FAQ)</h2>
+    <ul>
+      <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità con diritti speciali.</li>
+      <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
+      <li><strong>È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <p>Scopri il contratto su <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
+  </div>
+
+  <footer>
+    © 2025 MundusCoin – Adresa Contractului: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F
+  </footer>
+</body>
+</html>
