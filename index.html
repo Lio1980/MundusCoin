@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -15,7 +14,7 @@
         }
 
         header {
-            background-color: #2c3e50; /* Fundal albastru închis */
+            background-color: #2c3e50;
             color: #fff;
             text-align: center;
             padding: 2rem 1rem;
@@ -29,15 +28,15 @@
         }
 
         #logo-left, #logo-right {
-            width: 180px; /* Logo mărit cu 50% față de varianta anterioară */
+            width: 180px;
         }
 
         h1 {
-            font-size: 4.5rem; /* Textul „MundusCoin” mărit */
+            font-size: 4.5rem;
             font-weight: bold;
             margin: 0;
             letter-spacing: 1px;
-            color: #D4AF37; /* Auriu cald */
+            color: #D4AF37;
         }
 
         nav {
@@ -46,7 +45,7 @@
             gap: 2rem;
             margin-top: 1rem;
             font-size: 1.2rem;
-            background-color: #2c3e50; /* Fundal albastru închis */
+            background-color: #2c3e50;
             padding: 1rem 0;
             width: 100%;
         }
@@ -64,19 +63,18 @@
             color: #FFD700;
         }
 
-        /* Secțiunile de conținut vor avea fundal albastru deschis */
         section {
             padding: 4rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
-            background-color: #3498db; /* Fundal albastru deschis pentru secțiuni */
+            background-color: #3498db;
             color: white;
         }
 
         section h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
-            color: #FFD700; /* Auriu pentru titluri */
+            color: #FFD700;
             font-weight: 600;
         }
 
@@ -118,7 +116,6 @@
             margin: 0;
         }
 
-        /* Scroller pentru criptomonede */
         .crypto-ticker {
             background-color: #2c3e50;
             color: #fff;
@@ -154,11 +151,11 @@
         @media screen and (max-width: 768px) {
             header {
                 flex-direction: column;
-                padding: 4rem 1rem; /* Ajustăm padding-ul pentru telefoane */
+                padding: 4rem 1rem;
             }
 
             h1 {
-                font-size: 3rem; /* Ajustăm fontul pentru „MundusCoin” pe mobil */
+                font-size: 3rem;
             }
 
             nav {
@@ -175,21 +172,28 @@
             }
         }
     </style>
+    <!-- Google Translate script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'it',
+                includedLanguages: 'it,en,ro,de,fr,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
     <header>
-        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left"> <!-- Logo stânga -->
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left">
         <h1 id="site-title">MundusCoin</h1>
-        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right"> <!-- Logo dreapta -->
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right">
     </header>
 
-    <!-- Scroller pentru criptomonede -->
-    <div class="crypto-ticker">
-        <ul id="crypto-list">
-            <!-- Prețurile criptomonedelor vor apărea aici -->
-        </ul>
-    </div>
+    <!-- Google Translate Dropdown -->
+    <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px;"></div>
 
     <!-- Secțiunea de navigare cu trimiterile -->
     <nav>
@@ -230,6 +234,13 @@
             <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
             <li><strong>È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
         </ul>
+    </section>
+
+    <!-- Buton Whitepaper -->
+    <section>
+        <h2>📄 Scarica il Whitepaper</h2>
+        <p>Scopri di più su MundusCoin e la sua filosofia.</p>
+        <a href="MundusCoin_Whitepaper.pdf" target="_blank" class="cta">Scarica il PDF del Whitepaper</a>
     </section>
 
     <div class="cta">
