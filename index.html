@@ -247,15 +247,31 @@
         <p>Scopri di più su MundusCoin e il contratto su <a href="https://etherscan.io/address/0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F" target="_blank">Etherscan</a></p>
     </div>
 
+    <!-- Sezione de vânzare -->
+    <section>
+        <h2>Acquista MundusCoin</h2>
+        <p>Acquista MundusCoin direttamente dal nostro sito!</p>
+        
+        <!-- Formular pentru vânzare -->
+        <form id="sale-form">
+            <label for="amount">Scegli la quantità di MundusCoin che desideri acquistare:</label>
+            <input type="number" id="amount" name="amount" min="0.001" step="0.001" placeholder="1 MUND" required>
+            <button type="submit" id="buyButton" class="cta">Acquista MUND</button>
+        </form>
+
+        <!-- Prețul în USD -->
+        <p>Prețul curent al MUND este: <span id="price">Loading...</span> USD</p>
+    </section>
+
     <footer>
         <p>© 2025 MundusCoin – Indirizzo Contratto: 0xc33985859dB02B5C2F4fbADdE640Ea96E46fAF0F</p>
     </footer>
 
     <script>
         const apiKey = '54e5ec31-5bb0-459d-bf0e-3ae1047dad17';
-        const cryptoList = document.getElementById("crypto-list");
 
-        async function fetchCryptoPrices() {
+        // Fetch Prețul curent de pe CoinMarketCap (API-ul tău este deja configurat)
+        async function fetchPrice() {
             const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=5&convert=USD`;
             const response = await fetch(url, {
                 headers: {
@@ -264,19 +280,30 @@
                 }
             });
             const data = await response.json();
-            const cryptos = data.data;
-            cryptoList.innerHTML = '';
-
-            cryptos.forEach(crypto => {
-                const listItem = document.createElement("li");
-                listItem.textContent = `${crypto.name}: $${crypto.quote.USD.price.toFixed(2)}`;
-                cryptoList.appendChild(listItem);
-            });
+            const mundusCoin = data.data.find(crypto => crypto.symbol === 'MUND');
+            if (mundusCoin) {
+                const price = mundusCoin.quote.USD.price.toFixed(2);
+                document.getElementById("price").textContent = price;
+            }
         }
 
-        fetchCryptoPrices();
-        setInterval(fetchCryptoPrices, 60000); // Actualizează prețurile la fiecare minut
-    </script>
+        // Începe să preia prețul
+        fetchPrice();
+        setInterval(fetchPrice, 60000); // Actualizează prețul la fiecare minut
 
+        // Trimiterea formularului pentru vânzare (simulăm tranzacția)
+        document.getElementById("sale-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const amount = document.getElementById("amount").value;
+
+            if (amount >= 0.001) {
+                alert(`Cumpărarea de ${amount} MUND a fost trimisă la portofelul de vânzare!`);
+                // Aici ar trebui să implementezi logica pentru a conecta MetaMask sau un alt portofel criptografic
+                // și a trimite criptomonedele către portofelul de vânzare.
+            } else {
+                alert('Cantitatea minimă de MUND care poate fi cumpărată este de 0.001!');
+            }
+        });
+    </script>
 </body>
 </html>
