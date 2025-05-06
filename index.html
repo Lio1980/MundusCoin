@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -97,12 +96,15 @@
 <body>
 
     <header>
-        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left">
-        <h1 id="site-title">MundusCoin</h1>
-        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right">
+        <!-- Simbolul MundusCoin pe stânga și dreapta textului -->
+        <div style="display: flex; align-items: center;">
+            <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left">
+            <h1 id="site-title">MundusCoin</h1>
+            <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right">
+        </div>
 
-        <!-- Butonul de cumpărare sub titlu -->
-        <button class="payment-btn" onclick="window.location.href='ethereum:0x0C525b6E01B9947D8383Accf53e0704FA0690270?value=0.01'">Acquista MundusCoin</button>
+        <!-- Butonul de cumpărare sub titlu, cu prețul actual -->
+        <button class="payment-btn" id="buy-btn" onclick="window.location.href='ethereum:0x0C525b6E01B9947D8383Accf53e0704FA0690270?value=0.01'">Acquista adesso a 0.01 USD</button>
     </header>
 
     <nav>
@@ -170,6 +172,13 @@
                 listItem.textContent = `${crypto.name}: $${crypto.quote.USD.price.toFixed(2)}`;
                 cryptoList.appendChild(listItem);
             });
+
+            // Actualizează prețul butonului de cumpărare
+            const price = cryptos.find(crypto => crypto.name === "MundusCoin"); // Înlocuiește cu numele criptomonedei tale
+            const button = document.getElementById("buy-btn");
+            if (price) {
+                button.textContent = `Acquista adesso a ${price.quote.USD.price.toFixed(2)} USD`;
+            }
         }
 
         fetchCryptoPrices();
