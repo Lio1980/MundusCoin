@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -23,13 +24,13 @@
             justify-content: center;
             align-items: center;
             gap: 1rem;
-            flex-direction: column; /* Am schimbat din row în column pentru a pune butonul sub titlu */
+            flex-direction: column; 
             position: relative;
             z-index: 10;
         }
 
         #logo-left, #logo-right {
-            width: 270px; /* Mărim logo-ul cu 50% */
+            width: 270px; 
         }
 
         h1 {
@@ -50,7 +51,7 @@
             border-radius: 8px;
             cursor: pointer;
             text-transform: uppercase;
-            margin-top: 1.5rem; /* Am pus margine sus pentru a-l separa de titlu */
+            margin-top: 1.5rem;
             width: 100%;
             transition: background-color 0.3s;
         }
@@ -148,54 +149,49 @@
     </section>
 
     <footer>
-        <p>© 2025 MundusCoin – Indirizzo Contratto: 0x56DaFC5541884324816369BCF92684775e9E9343</p>
+        <p>© 2025 MundusCoin – Indirizzo Contratto: 0x0C525b6E01B9947D8383Accf53e0704FA0690270</p>
     </footer>
 
-    <!-- Include ethers.js pentru interacțiunea cu contractul -->
-    <script src="https://cdn.jsdelivr.net/npm/ethers@5.4.5/dist/ethers.umd.min.js"></script>
-
     <script>
-        // Așează contractul tău pe adresa corectă
-        const contractAddress = "0x56DaFC5541884324816369BCF92684775e9E9343"; // Adresa contractului
+        const contractAddress = "0x0C525b6E01B9947D8383Accf53e0704FA0690270";  // Adresa portofelului creatorului
+        const buyButton = document.getElementById("buy-btn");
 
-        // ABI-ul contractului (trebuie să-l înlocuiești cu ABI-ul complet al contractului tău)
-        const abi = [
-            "function buyTokens() external payable"
-        ];
+        // Aceasta va deschide MetaMask pentru a face achiziția
+        buyButton.addEventListener("click", async () => {
+            if (typeof window.ethereum !== "undefined") {
+                const ethereum = window.ethereum;
+                await ethereum.request({ method: 'eth_requestAccounts' }); // Solicită accesul la conturile MetaMask
 
-        // Funcția de conectare la MetaMask și cumpărare
-        document.getElementById('buy-btn').addEventListener('click', async () => {
-            if (typeof window.ethereum !== 'undefined') {
-                // Obține provider-ul Ethereum (MetaMask)
-                const provider = new ethers.providers.Web3Provider(window.ethereum);
-                const signer = provider.getSigner();
+                const accounts = await ethereum.request({ method: 'eth_accounts' });
+                const userAddress = accounts[0];
 
-                // Creează instanța contractului
-                const contract = new ethers.Contract(contractAddress, abi, signer);
+                const price = 0.01 * 1e18; // Prețul în wei pentru 0.01 USD
 
-                try {
-                    // Prețul pentru cumpărare, în ETH (de exemplu, 0.01 ETH)
-                    const priceInETH = ethers.utils.parseEther("0.01");
+                // Să trimitem tranzacția direct la contractul tău
+                const tx = {
+                    to: contractAddress,
+                    from: userAddress,
+                    value: price, // Suma care se trimite
+                    data: "0x" // Poți adăuga funcționalitate suplimentară aici pentru a interacționa cu contractul tău
+                };
 
-                    // Apelează funcția buyTokens() din contractul tău
-                    const tx = await contract.buyTokens({
-                        value: priceInETH // Valoarea de ETH care va fi trimisă la contract
-                    });
-
-                    // Așteaptă finalizarea tranzacției
-                    console.log("Tranzacția este în curs...", tx.hash);
-                    await tx.wait();
-
-                    // Mesaj de succes
-                    alert("Cumpărarea a fost realizată cu succes!");
-                } catch (error) {
-                    console.error("Eroare la cumpărare:", error);
-                    alert("A apărut o eroare. Te rugăm să încerci din nou.");
-                }
+                await ethereum.request({
+                    method: 'eth_sendTransaction',
+                    params: [tx],
+                })
+                .then((txHash) => {
+                    console.log("Tranzacție trimisă: " + txHash);
+                    alert("Achiziția a fost realizată cu succes!");
+                })
+                .catch((error) => {
+                    console.error("Eroare la tranzacție: ", error);
+                    alert("A apărut o eroare, te rugăm să încerci din nou.");
+                });
             } else {
-                alert("MetaMask nu este instalat sau nu este conectat.");
+                alert("Te rugăm să instalezi MetaMask pentru a cumpăra MundusCoin!");
             }
         });
     </script>
+
 </body>
 </html>
