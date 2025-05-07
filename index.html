@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -163,14 +162,36 @@
 
     <script src="https://cdn.jsdelivr.net/npm/ethers@5.6.2/dist/ethers.umd.min.js"></script>
     <script>
-        // Contract details
-        const contractAddress = '0x56DaFC5541884324816369BCF92684775e9E9343'; // Noua adresă a contractului
+        // Detalii contract
+        const contractAddress = '0x56DaFC5541884324816369BCF92684775e9E9343'; // Adresa contractului
         const contractABI = [
-            // ABI minimal pentru funcțiile relevante (minting, buyTokens etc.)
-            // Completează ABI-ul tău corect!
+            // ABI minim pentru prețul și funcția de cumpărare
+            {
+                "constant": true,
+                "inputs": [],
+                "name": "getCurrentPrice",
+                "outputs": [
+                    {
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "payable": false,
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "constant": false,
+                "inputs": [],
+                "name": "buyTokens",
+                "outputs": [],
+                "payable": true,
+                "stateMutability": "payable",
+                "type": "function"
+            }
         ];
 
-        // Connect to Ethereum using MetaMask
+        // Conectare la Ethereum folosind MetaMask
         let provider;
         let signer;
         let contract;
@@ -195,8 +216,8 @@
         // Obține prețul curent al tokenului
         async function getCurrentPrice() {
             try {
-                const price = await contract.getCurrentPrice(); // Contractul tău va returna prețul
-                return ethers.utils.formatUnits(price, 18); // Convertim prețul la format standard
+                const price = await contract.getCurrentPrice();
+                return ethers.utils.formatUnits(price, 18); // Prețul returnat în ether
             } catch (error) {
                 console.error('Eroare la obținerea prețului:', error);
                 return null;
@@ -219,7 +240,7 @@
         document.getElementById('buy-btn').addEventListener('click', async () => {
             const price = await getCurrentPrice();
             if (price) {
-                const ethAmount = ethers.utils.parseUnits(price, 'ether'); // Aici presupunem că prețul este în ETH
+                const ethAmount = ethers.utils.parseUnits(price, 'ether'); // Convertim prețul în ETH
                 try {
                     const tx = await contract.buyTokens({ value: ethAmount });
                     console.log('Tranzacție trimisă:', tx);
