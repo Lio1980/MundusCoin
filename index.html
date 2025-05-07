@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -23,13 +24,13 @@
             justify-content: center;
             align-items: center;
             gap: 1rem;
-            flex-direction: column; /* Am schimbat din row în column pentru a pune butonul sub titlu */
+            flex-direction: column;
             position: relative;
             z-index: 10;
         }
 
         #logo-left, #logo-right {
-            width: 270px; /* Mărim logo-ul cu 50% */
+            width: 270px;
         }
 
         h1 {
@@ -50,7 +51,7 @@
             border-radius: 8px;
             cursor: pointer;
             text-transform: uppercase;
-            margin-top: 1.5rem; /* Am pus margine sus pentru a-l separa de titlu */
+            margin-top: 1.5rem;
             width: 100%;
             transition: background-color 0.3s;
         }
@@ -91,6 +92,15 @@
         footer p {
             margin: 0;
         }
+
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +114,7 @@
         </div>
 
         <!-- Butonul de cumpărare sub titlu, cu prețul actual -->
-        <button class="payment-btn" id="buy-btn" onclick="window.location.href='ethereum:0x0C525b6E01B9947D8383Accf53e0704FA0690270?value=0.01'">Acquista adesso a 0.01 USD</button>
+        <button class="payment-btn" id="buy-btn">Acquista adesso</button>
     </header>
 
     <nav>
@@ -148,41 +158,76 @@
     </section>
 
     <footer>
-        <p>© 2025 MundusCoin – Indirizzo Contratto: 0x0C525b6E01B9947D8383Accf53e0704FA0690270</p>
+        <p>© 2025 MundusCoin – Indirizzo Contratto: <a href="https://etherscan.io/address/0x56DaFC5541884324816369BCF92684775e9E9343" target="_blank">0x56DaFC5541884324816369BCF92684775e9E9343</a></p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.6.2/dist/ethers.umd.min.js"></script>
     <script>
-        const apiKey = '54e5ec31-5bb0-459d-bf0e-3ae1047dad17';
-        const cryptoList = document.getElementById("crypto-list");
+        // Contract details
+        const contractAddress = '0x56DaFC5541884324816369BCF92684775e9E9343'; // Noua adresă a contractului
+        const contractABI = [
+            // ABI minimal pentru funcțiile relevante (minting, buyTokens etc.)
+            // Completează ABI-ul tău corect!
+        ];
 
-        async function fetchCryptoPrices() {
-            const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=5&convert=USD`;
-            const response = await fetch(url, {
-                headers: {
-                    'X-CMC_PRO_API_KEY': apiKey,
-                    'Accept': 'application/json'
-                }
-            });
-            const data = await response.json();
-            const cryptos = data.data;
-            cryptoList.innerHTML = '';
+        // Connect to Ethereum using MetaMask
+        let provider;
+        let signer;
+        let contract;
 
-            cryptos.forEach(crypto => {
-                const listItem = document.createElement("li");
-                listItem.textContent = `${crypto.name}: $${crypto.quote.USD.price.toFixed(2)}`;
-                cryptoList.appendChild(listItem);
-            });
+        if (window.ethereum) {
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            signer = provider.getSigner();
+            contract = new ethers.Contract(contractAddress, contractABI, signer);
 
-            // Actualizează prețul butonului de cumpărare
-            const price = cryptos.find(crypto => crypto.name === "MundusCoin"); // Înlocuiește cu numele criptomonedei tale
-            const button = document.getElementById("buy-btn");
-            if (price) {
-                button.textContent = `Acquista adesso a ${price.quote.USD.price.toFixed(2)} USD`;
+            // Permite utilizatorilor să conecteze MetaMask
+            window.ethereum.request({ method: 'eth_requestAccounts' })
+                .then(() => {
+                    console.log('Contul MetaMask conectat');
+                })
+                .catch(err => {
+                    console.log('Eroare de conectare: ', err);
+                });
+        } else {
+            alert('MetaMask nu este instalat!');
+        }
+
+        // Obține prețul curent al tokenului
+        async function getCurrentPrice() {
+            try {
+                const price = await contract.getCurrentPrice(); // Contractul tău va returna prețul
+                return ethers.utils.formatUnits(price, 18); // Convertim prețul la format standard
+            } catch (error) {
+                console.error('Eroare la obținerea prețului:', error);
+                return null;
             }
         }
 
-        fetchCryptoPrices();
-        setInterval(fetchCryptoPrices, 60000); // Actualizează prețurile la fiecare minut
+        // Actualizează prețul butonului de cumpărare
+        async function updateBuyButton() {
+            const price = await getCurrentPrice();
+            const buyButton = document.getElementById('buy-btn');
+            if (price) {
+                buyButton.textContent = `Acquista adesso a ${price} USD`;
+            }
+        }
+
+        // Actualizează prețul inițial
+        updateBuyButton();
+
+        // Adaugă logica pentru cumpărare tokeni
+        document.getElementById('buy-btn').addEventListener('click', async () => {
+            const price = await getCurrentPrice();
+            if (price) {
+                const ethAmount = ethers.utils.parseUnits(price, 'ether'); // Aici presupunem că prețul este în ETH
+                try {
+                    const tx = await contract.buyTokens({ value: ethAmount });
+                    console.log('Tranzacție trimisă:', tx);
+                } catch (error) {
+                    console.error('Eroare la cumpărarea tokenilor:', error);
+                }
+            }
+        });
     </script>
 
 </body>
