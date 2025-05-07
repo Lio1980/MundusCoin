@@ -149,11 +149,12 @@
     </section>
 
     <footer>
-        <p>© 2025 MundusCoin – Indirizzo Contratto: 0x0C525b6E01B9947D8383Accf53e0704FA0690270</p>
+        <p>© 2025 MundusCoin – Indirizzo Contratto: <a href="https://etherscan.io/address/0x56DaFC5541884324816369BCF92684775e9E9343" target="_blank">0x56DaFC5541884324816369BCF92684775e9E9343</a></p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.umd.min.js"></script>
     <script>
-        const contractAddress = "0x0C525b6E01B9947D8383Accf53e0704FA0690270";  // Adresa portofelului creatorului
+        const contractAddress = "0x56DaFC5541884324816369BCF92684775e9E9343";  // Adresa contractului MundusCoin
         const buyButton = document.getElementById("buy-btn");
 
         // Aceasta va deschide MetaMask pentru a face achiziția
@@ -167,26 +168,24 @@
 
                 const price = 0.01 * 1e18; // Prețul în wei pentru 0.01 USD
 
-                // Să trimitem tranzacția direct la contractul tău
-                const tx = {
-                    to: contractAddress,
-                    from: userAddress,
-                    value: price, // Suma care se trimite
-                    data: "0x" // Poți adăuga funcționalitate suplimentară aici pentru a interacționa cu contractul tău
-                };
+                // Să trimitem tranzacția direct la contractul tău pentru a cumpăra tokeni
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                const signer = provider.getSigner();
 
-                await ethereum.request({
-                    method: 'eth_sendTransaction',
-                    params: [tx],
-                })
-                .then((txHash) => {
-                    console.log("Tranzacție trimisă: " + txHash);
+                const contractABI = [
+                    "function buyTokens() public payable"
+                ];
+
+                const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+                try {
+                    const tx = await contract.buyTokens({ value: price });
+                    console.log("Tranzacție trimisă: ", tx.hash);
                     alert("Achiziția a fost realizată cu succes!");
-                })
-                .catch((error) => {
+                } catch (error) {
                     console.error("Eroare la tranzacție: ", error);
                     alert("A apărut o eroare, te rugăm să încerci din nou.");
-                });
+                }
             } else {
                 alert("Te rugăm să instalezi MetaMask pentru a cumpăra MundusCoin!");
             }
