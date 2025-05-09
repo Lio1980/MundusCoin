@@ -1,47 +1,282 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="MundusCoin - Una criptovaluta simbolica per rappresentare ogni essere umano sulla Terra.">
-  <title>MundusCoin | Una Criptovaluta per l'Umanità</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundusCoin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-direction: row;
+            position: relative;
+            z-index: 10;
+        }
+
+        #logo-left, #logo-right {
+            width: 180px;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+            color: #D4AF37;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            background-color: #2c3e50;
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #3498db;
+            color: white;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        section p, ul {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 2rem;
+        }
+
+        .cta {
+            background-color: #4a90e2;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            margin: 3rem 0;
+            font-size: 1.2rem;
+        }
+
+        .cta a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .crypto-ticker {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+
+        .crypto-ticker ul {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            animation: ticker 30s linear infinite;
+        }
+
+        .crypto-ticker li {
+            margin-right: 2rem;
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 4rem 1rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .cta {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+    <!-- Google Translate script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'it',
+                includedLanguages: 'it,en,ro,de,fr,es',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-  <header>
-    <h1>MundusCoin</h1>
-    <p>Una Criptovaluta per l'Umanità</p>
-  </header>
 
-  <section id="about">
-    <h2>Cos'è MundusCoin?</h2>
-    <p>MundusCoin è una criptovaluta etica e simbolica costruita sulla blockchain di Ethereum, progettata per rappresentare ogni essere umano vivente sulla Terra.</p>
-  </section>
+    <header>
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-left">
+        <h1 id="site-title">MundusCoin</h1>
+        <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" id="logo-right">
+    </header>
 
-  <section id="features">
-    <h2>Caratteristiche</h2>
-    <ul>
-      <li>💠 1 moneta per ogni persona vivente</li>
-      <li>📈 Offerta dinamica: token generati alla nascita, bruciati alla morte</li>
-      <li>🪙 Standard ERC-20 su Ethereum</li>
-      <li>🗺️ Visione globale e umanitaria</li>
-    </ul>
-  </section>
+    <!-- Google Translate Dropdown -->
+    <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px;"></div>
 
-  <section id="whitepaper">
-    <h2>Whitepaper</h2>
-    <p>Scopri tutti i dettagli del progetto nel nostro whitepaper ufficiale.</p>
-    <a href="whitepaper_v2.pdf" class="btn" target="_blank">Scarica il Whitepaper</a>
-  </section>
+    <!-- Secțiunea de navigare cu trimiterile -->
+    <nav>
+        <a href="#about">Cos'è MundusCoin</a>
+        <a href="#how">Come Funziona</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#faq">FAQ</a>
+    </nav>
 
-  <section id="acquista">
-    <h2>Acquista MUND</h2>
-    <p>Partecipa al progetto acquistando MUND a prezzo promozionale!</p>
-    <a href="#" class="btn">Acquista Adesso</a> <!-- va conectat ulterior -->
-  </section>
+    <section id="about">
+        <h2>Cos'è MundusCoin?</h2>
+        <p>MundusCoin è una criptovaluta unica che nasce per rappresentare ogni essere umano sulla Terra.</p>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 MundusCoin. Tutti i diritti riservati.</p>
-  </footer>
+    <section id="how">
+        <h2>Come Funziona</h2>
+        <ul>
+            <li><strong>Generazione automatica:</strong> Ogni nuova nascita genera un token.</li>
+            <li><strong>Bruciatura:</strong> Ogni morte distrugge un token.</li>
+            <li><strong>Distribuzione equa:</strong> Ogni token rappresenta simbolicamente un essere umano.</li>
+        </ul>
+    </section>
+
+    <section id="roadmap">
+        <h2>Roadmap</h2>
+        <ul>
+            <li><strong>Q2 2025:</strong> Lancio del sito e contratto verificato su Etherscan.</li>
+            <li><strong>Q3 2025:</strong> Integrazione con Trust Wallet / MetaMask.</li>
+            <li><strong>Q4 2025:</strong> Comunità globale e listaggio su DEX.</li>
+            <li><strong>2026:</strong> Integrazione con dati reali sulla popolazione globale tramite oracoli.</li>
+        </ul>
+    </section>
+
+    <section id="faq">
+        <h2>Domande Frequenti (FAQ)</h2>
+        <ul>
+            <li><strong>Chi può minare i token?</strong> Solo il creatore del contratto o un'autorità con diritti speciali.</li>
+            <li><strong>Posso acquistare MUND su un exchange?</strong> Sarà disponibile su DEX nel prossimo futuro.</li>
+            <li><strong>È un investimento?</strong> È un progetto simbolico, non un consiglio finanziario.</li>
+        </ul>
+    </section>
+
+    <!-- Buton Whitepaper -->
+    <section>
+        <h2>📄 Scarica il Whitepaper</h2>
+        <p>Scopri di più su MundusCoin e la sua filosofia.</p>
+        <a href="MundusCoin_Whitepaper_v2.pdf" target="_blank" class="cta">Scarica il PDF del Whitepaper</a>
+    </section>
+
+    <div class="cta">
+        <p>Scopri di più su MundusCoin e il contratto su <a href="https://etherscan.io/address/0x56DaFC5541884324816369BCF92684775e9E9343" target="_blank">Etherscan</a></p>
+    </div>
+
+    <footer>
+        <p>© 2025 MundusCoin – Indirizzo Contratto: 0x56DaFC5541884324816369BCF92684775e9E9343</p>
+    </footer>
+
+    <script>
+        const apiKey = '54e5ec31-5bb0-459d-bf0e-3ae1047dad17';
+        const cryptoList = document.getElementById("crypto-list");
+
+        async function fetchCryptoPrices() {
+            const url = `https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=5&convert=USD`;
+            const response = await fetch(url, {
+                headers: {
+                    'X-CMC_PRO_API_KEY': apiKey,
+                    'Accept': 'application/json'
+                }
+            });
+            const data = await response.json();
+            const cryptos = data.data;
+            cryptoList.innerHTML = '';
+
+            cryptos.forEach(crypto => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${crypto.name}: $${crypto.quote.USD.price.toFixed(2)}`;
+                cryptoList.appendChild(listItem);
+            });
+        }
+
+        fetchCryptoPrices();
+        setInterval(fetchCryptoPrices, 60000); // Actualizează prețurile la fiecare minut
+    </script>
+
 </body>
 </html>
