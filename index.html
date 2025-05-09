@@ -208,7 +208,7 @@
 
 <section id="about">
   <h2>Cos'è MundusCoin?</h2>
-  <p>MundusCoin è una criptovaluta unica che nasce per rappresentare ogni essere umano sulla Terra. Il progetto è pensato ca o inițiativă serioasă, scalabilă, cu potențial investițional pe termen lung.</p>
+  <p>MundusCoin è una criptovaluta unica che nasce per rappresentare ogni essere umano sulla Terra.</p>
 </section>
 
 <section id="how">
@@ -216,7 +216,8 @@
   <ul>
     <li>Ogni nascita genera un token.</li>
     <li>Ogni morte distrugge un token.</li>
-    <li>Mining automat: numărul de tokenuri este ajustat automat în funcție de populația mondială.</li>
+    <li>Distribuzione equa e simbolica.</li>
+    <li>Token mining automatico basato sulla popolazione mondiale.</li>
   </ul>
 </section>
 
@@ -226,14 +227,14 @@
     <li>Q2 2025: Lancio.</li>
     <li>Q3 2025: Integrazione wallet.</li>
     <li>Q4 2025: Listaggio DEX.</li>
-    <li>2026: Dati reali cu oracoli.</li>
+    <li>2026: Dati reali con oracoli.</li>
   </ul>
 </section>
 
 <section id="faq">
   <h2>Domande Frequenti</h2>
   <ul>
-    <li>Token mining? Automat, pe baza datelor demografice globale.</li>
+    <li>Token mining? Automatico e controllato.</li>
     <li>Disponibile su exchange? A breve.</li>
   </ul>
 </section>
@@ -256,6 +257,40 @@
 <footer>
   <p>© 2025 MundusCoin – Contratto: 0x56DaFC5541884324816369BCF92684775e9E9343</p>
 </footer>
+
+<div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'it',
+      includedLanguages: 'en,es,fr,de,ro,pt,ru,zh-CN,ja',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript"
+  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+<script>
+  window.onload = function () {
+    const userLang = navigator.language || navigator.userLanguage;
+    const langCode = userLang.split('-')[0];
+    const accepted = ['en', 'es', 'fr', 'de', 'ro', 'pt', 'ru', 'zh', 'ja'];
+    if (accepted.includes(langCode) && langCode !== 'it') {
+      const interval = setInterval(() => {
+        const frame = document.querySelector('iframe.goog-te-banner-frame');
+        if (frame) {
+          clearInterval(interval);
+          const select = document.querySelector('.goog-te-combo');
+          if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+          }
+        }
+      }, 500);
+    }
+  };
+</script>
 
 </body>
 </html>
