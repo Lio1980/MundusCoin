@@ -28,11 +28,11 @@
     }
 
     #logo-left, #logo-right {
-      width: 120px;
+      width: 180px;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 4.5rem;
       font-weight: bold;
       margin: 0;
       letter-spacing: 1px;
@@ -116,36 +116,6 @@
       margin: 0;
     }
 
-    .buy-container {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    #buyButton {
-      background-color: #D4AF37;
-      border: none;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    #buyButton:hover {
-      background-color: #bfa036;
-    }
-
-    .vitruvian {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .vitruvian img {
-      width: 200px;
-      height: auto;
-    }
-
     @media screen and (max-width: 768px) {
       header {
         flex-direction: column;
@@ -168,10 +138,6 @@
       section {
         padding: 2rem 1rem;
       }
-
-      .vitruvian img {
-        width: 150px;
-      }
     }
   </style>
 
@@ -182,6 +148,7 @@
         const web3 = new Web3(window.ethereum);
         try {
           await ethereum.request({ method: 'eth_requestAccounts' });
+
           const contract = new web3.eth.Contract(
             [
               {
@@ -192,27 +159,38 @@
                 "type": "function"
               }
             ],
-            "0x56DaFC5541884324816369BCF92684775e9E9343"
+            "0x56DaFC5541884324816369BCF92684775e9E9343" // adresa contractului tău
           );
 
           document.getElementById('buyButton').addEventListener('click', async () => {
             const accounts = await web3.eth.getAccounts();
             const account = accounts[0];
+
+            // Obținem prețul ETH/USD de la CoinGecko
             const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd');
             const data = await response.json();
             const ethPrice = data.ethereum.usd;
-            const usdAmount = 0.01;
+
+            // Prețul dorit în USD
+            const usdAmount = 0.01;  // Poți schimba această valoare pentru a reflecta suma dorită
+            // Calculăm ETH necesar pentru a cumpăra USD-ul dorit
             const ethAmount = usdAmount / ethPrice;
 
+            // Conversia la wei
+            const ethAmountInWei = web3.utils.toWei(ethAmount.toString(), 'ether');
+
+            console.log("ETH necesar:", ethAmount);  // Verifică valoarea calculată
+
+            // Trimitem tranzacția către contract
             try {
               await contract.methods.buyTokens().send({
                 from: account,
-                value: web3.utils.toWei(ethAmount.toString(), 'ether')
+                value: ethAmountInWei
               });
               alert("Token acquistati con successo!");
             } catch (err) {
-              console.error(err);
-              alert("Errore nella transazione.");
+              console.error("Eroare la tranzacție:", err); // Afișează eroarea completă în consolă
+              alert("Errore nella transazione. Verifica consola pentru detalii.");
             }
           });
 
@@ -239,7 +217,6 @@
   <a href="#roadmap">Roadmap</a>
   <a href="#faq">FAQ</a>
 </nav>
-
 <section id="video">
   <div style="text-align:center; margin-top: 2rem;">
     <video width="100%" height="400" controls>
@@ -288,12 +265,9 @@
   <a href="whitepaper_v2.pdf" target="_blank" class="cta">Scarica il PDF</a>
 </section>
 
-<section class="buy-container">
+<section>
   <h2>Acquista MundusCoin</h2>
-  <button id="buyButton">Acquista Adesso (0.01 USD)</button>
-  <div class="vitruvian">
-    <img src="images/vitruvian_gold.png" alt="Omul Vitruvian auriu">
-  </div>
+  <button id="buyButton">Acquista Adesso</button>
 </section>
 
 <div class="cta">
@@ -304,40 +278,9 @@
   <p>© 2025 MundusCoin – Contratto: 0x56DaFC5541884324816369BCF92684775e9E9343</p>
 </footer>
 
-<!-- Google Translate -->
 <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
 <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'it',
-      includedLanguages: 'en,es,fr,de,ro,pt,ru,zh-CN,ja',
-      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-    }, 'google_translate_element');
-  }
-</script>
-<script type="text/javascript"
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-<script>
-  window.onload = function () {
-    const userLang = navigator.language || navigator.userLanguage;
-    const langCode = userLang.split('-')[0];
-    const accepted = ['en', 'es', 'fr', 'de', 'ro', 'pt', 'ru', 'zh', 'ja'];
-    if (accepted.includes(langCode) && langCode !== 'it') {
-      const interval = setInterval(() => {
-        const frame = document.querySelector('iframe.goog-te-banner-frame');
-        if (frame) {
-          clearInterval(interval);
-          const select = document.querySelector('.goog-te-combo');
-          if (select) {
-            select.value = langCode;
-            select.dispatchEvent(new Event('change'));
-          }
-        }
-      }, 500);
-    }
-  };
-</script>
-
-</body>
-</html>
+      includedLanguages: 'en,
