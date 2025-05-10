@@ -11,10 +11,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-T2BCKKTVC0');
   </script>
 
-  <!-- CSS -->
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -152,18 +152,6 @@
     }
   </style>
 
-  <!-- Google Translate Script -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'it',
-        includedLanguages: 'en,fr,de,es,it,ro',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/web3@1.7.5/dist/web3.min.js"></script>
   <script>
     window.addEventListener('load', async () => {
@@ -225,7 +213,6 @@
       }
     });
   </script>
-
 </head>
 <body>
 
@@ -298,25 +285,31 @@
   style="border:0; margin-top: 1rem; border-radius: 12px;"
   loading="lazy"
   allow="clipboard-write; accelerometer; gyroscope; payment"
-  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
 ></iframe>
-
-<section>
-  <h2>Contattaci</h2>
-  <div>
-    <a href="mailto:contact@munduscoin.com" style="display: inline-block; background-color: #4a90e2; color: white; padding: 1rem; text-align: center; border-radius: 8px; font-weight: bold; text-decoration: none;">Invia una email</a>
-  </div>
-</section>
 
 <div class="cta">
   <p>Visualizza il contratto su <a href="https://etherscan.io/address/0x56DaFC5541884324816369BCF92684775e9E9343" target="_blank">Etherscan</a></p>
 </div>
+
+<section>
+  <h2>Contattaci</h2>
+  <p>Per qualsiasi domanda, puoi contattarci all'indirizzo email: <a href="mailto:contact@munduscoin.com">contact@munduscoin.com</a></p>
+</section>
 
 <footer>
   <p>© 2025 MundusCoin – Contratto: 0x56DaFC5541884324816369BCF92684775e9E9343</p>
 </footer>
 
 <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'it',
+      includedLanguages: 'en,ro,es,fr,de,it'
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
