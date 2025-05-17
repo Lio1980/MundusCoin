@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MundusCoin - La Criptovaluta dell'Umanità</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2BCKKTVC0"></script>
   <script>
@@ -29,13 +29,6 @@
     .hero {
       text-align: center;
       padding: 5rem 2rem;
-    }
-    .hero img {
-      max-width: 180px;
-      margin-bottom: 1rem;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
     }
     .hero h1 {
       font-size: 3rem;
@@ -89,8 +82,7 @@
 </head>
 <body>
   <div class="hero">
-    <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" />
-
+    <img src="simbolo%20MundusCoin.jpg" alt="Logo MundusCoin" style="max-width: 160px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
     <h1>MundusCoin</h1>
     <p>La criptovaluta dell'umanità</p>
     <button class="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
@@ -137,7 +129,8 @@
     </p>
     <div class="card" style="text-align:center">
       <label for="tokenAmount">Quantità:</label><br>
-      <input type="number" id="tokenAmount" placeholder="Es. 100" /><br>
+      <input type="number" id="tokenAmount" placeholder="Es. 100" />
+      <br>
       <button class="button" onclick="buyMundTokens()">Compra con ETH su MetaMask</button>
     </div>
   </section>
@@ -163,9 +156,11 @@
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
-        pageLanguage: 'it',
-        autoDisplay: false
-      }, 'google_translate_element');
+  pageLanguage: 'it',
+  includedLanguages: 'en,fr,de,es,ro,pt,ru',
+  layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+  autoDisplay: true
+}, 'google_translate_element');
     }
   </script>
 
