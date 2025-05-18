@@ -3,7 +3,7 @@
 <link rel="icon" href="favicon.ico" type="image/x-icon" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MundusCoin - La Criptovaluta dell'Umanità</title>
+<title class="notranslate">MundusCoin - La Criptovaluta dell'Umanità</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2BCKKTVC0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -78,20 +78,23 @@
     margin-top: 2rem;
     font-weight: bold;
   }
+  .notranslate {
+    translate: no;
+  }
 </style>
 </head>
 <body>
   <div class="hero">
-    <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" style="max-width: 160px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
-    <h1>MundusCoin</h1>
-    <p>La criptovaluta dell'umanità</p>
+    <img src="simbolo-munduscoin.jpg" alt="Logo MundusCoin" class="notranslate" style="max-width: 160px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
+    <h1 class="notranslate">MundusCoin</h1>
+    <p class="notranslate">La criptovaluta dell'umanità</p>
     <button class="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">
       Scopri di più
     </button>
   </div>
 
   <section id="about">
-    <h2>Cos'è MundusCoin?</h2>
+    <h2>Cos'è <span class="notranslate">MundusCoin</span>?</h2>
     <p>Una criptovaluta che rappresenta ogni essere umano. Ogni nascita genera un token. Ogni decesso distrugge un token.</p>
   </section>
 
@@ -125,7 +128,7 @@
   <section id="buy">
     <h2>Acquista Ora: Token MUND a Prezzo Iniziale di 0,01 USD!</h2>
     <p class="cta">
-      🔒 Per acquistare i token, apri il browser integrato nell'app MetaMask e visita <strong>munduscoin.com</strong>
+      🔒 Per acquistare i token, apri il browser integrato nell'app MetaMask e visita <strong class="notranslate">munduscoin.com</strong>
     </p>
     <div class="card" style="text-align:center">
       <label for="tokenAmount">Quantità:</label><br>
@@ -149,7 +152,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 MundusCoin</p>
+    <p>&copy; 2025 <span class="notranslate">MundusCoin</span></p>
   </footer>
 
   <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
@@ -168,6 +171,7 @@
   <script>
     function openWhitepaper() {
       const lang = navigator.language || navigator.userLanguage;
+      console.log("Browser language detected:", lang);
       let whitepaper = "whitepaper-en-logo-adjusted.pdf";
 
       if (lang.startsWith("it")) whitepaper = "whitepaper.pdf.pdf";
@@ -226,4 +230,3 @@
   </script>
 </body>
 </html>
-
