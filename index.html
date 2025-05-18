@@ -19,7 +19,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(to right, #0f2027, #0f2027, #0f2027);
       color: #ffffff;
     }
     header, section, footer {
@@ -123,8 +123,8 @@
     <h2>Roadmap</h2>
     <ul>
       <li>Q2 2025: Lancio + Vendita tramite MetaMask in ETH</li>
-      <li>Q3 2025: Integrazione wallet</li>
       <li>2026: Dati reali con oracoli</li>
+      <li>2027+: Espansione ecosistema</li>
     </ul>
   </section>
 
@@ -145,6 +145,7 @@
     <h2>Documentazione</h2>
     <div class="card">
       <p><a href="#" onclick="openWhitepaper()">📄 Visualizza il Whitepaper</a></p>
+      <p><a href="MundusCoin_PitchDeck_Final_Revised.pdf" target="_blank">📊 Pitch Deck per Investitori</a></p>
       <p><a href="https://etherscan.io/address/0xA8F26e883f2A13cA63c89748eC1260551DEEdDFf" target="_blank">🔗 Visualizza il contratto su Etherscan</a></p>
     </div>
   </section>
@@ -174,9 +175,11 @@
   <script>
     function openWhitepaper() {
       const lang = navigator.language || navigator.userLanguage;
-      console.log("Browser language detected:", lang);
       let whitepaper = "whitepaper-en-logo-adjusted.pdf";
       if (lang.startsWith("it")) whitepaper = "whitepaper.pdf.pdf";
+      else if (lang.startsWith("ro")) whitepaper = "whitepaper-ro.pdf";
+      else if (lang.startsWith("fr")) whitepaper = "whitepaper-fr.pdf";
+      else if (lang.startsWith("es")) whitepaper = "whitepaper-es.pdf";
       window.open(whitepaper, "_blank");
     }
   </script>
@@ -222,4 +225,3 @@
   </script>
 </body>
 </html>
-
