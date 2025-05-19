@@ -82,6 +82,15 @@
     .notranslate {
       translate: no;
     }
+    .social-qr {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .social-qr img {
+      max-width: 150px;
+      margin: 1rem;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -97,7 +106,6 @@
     <h2> <span class="notranslate">MundusCoin</h2>
     <p>La criptovaluta che rappresenta ogni essere umano. Ogni nascita genera un token. Ogni decesso distrugge un token.</p>
   </section>
-
   <section id="video" style="text-align: center;">
     <h2>Guarda il Video</h2>
     <div style="max-width: 1000px; margin: 0 auto;">
@@ -107,7 +115,6 @@
       </video>
     </div>
   </section>
-
   <section id="how">
     <h2>Come Funziona</h2>
     <ul>
@@ -117,7 +124,6 @@
       <li>Mining automatico globale</li>
     </ul>
   </section>
-
   <section id="roadmap">
     <h2>Roadmap</h2>
     <ul>
@@ -126,7 +132,6 @@
       <li>2027+: Espansione ecosistema</li>
     </ul>
   </section>
-
   <section id="buy">
     <h2>Acquista Ora: Token MUND a Prezzo Iniziale di 0,01 USD!</h2>
     <p class="cta">
@@ -147,18 +152,19 @@
       <p><a href="https://etherscan.io/address/0xA8F26e883f2A13cA63c89748eC1260551DEEdDFf" target="_blank">🔗 Visualizza il contratto su Etherscan</a></p>
     </div>
   </section>
-
-  <section id="contact">
-    <h2>Contattaci</h2>
-    <p>Per qualsiasi domanda: <a href="mailto:contact@munduscoin.com">contact@munduscoin.com</a></p>
+  <section class="social-qr">
+    <h2>Seguici</h2>
+    <p>Scansiona per unirti alle nostre community:</p>
+    <div>
+      <img src="qr-telegram.jpg" alt="Telegram QR">
+      <img src="qr-instagram.png" alt="Instagram QR">
+      <img src="qr-tiktok.png" alt="TikTok QR">
+    </div>
   </section>
-
   <footer>
     <p>&copy; 2025 <span class="notranslate">MundusCoin</span></p>
   </footer>
-
   <div id="google_translate_element" style="position: fixed; bottom: 10px; right: 10px; z-index: 9999;"></div>
-
   <script>
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -167,7 +173,6 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: true
       }, 'google_translate_element');
-
       setTimeout(() => {
         const userLang = navigator.language || navigator.userLanguage;
         if (userLang.startsWith("en")) {
@@ -179,7 +184,6 @@
         }
       }, 1000);
     }
-
     function openWhitepaper() {
       const lang = navigator.language || navigator.userLanguage;
       let whitepaper = "whitepaper_dark_english_4pages_wrapped.pdf";
