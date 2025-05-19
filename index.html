@@ -93,9 +93,8 @@
       Scopri di più
     </button>
   </div>
-
   <section id="about">
-    <h2>Cos è <span class="notranslate">MundusCoin</span>?</h2>
+    <h2>Cos'è <span class="notranslate">MundusCoin</span>?</h2>
     <p>Una criptovaluta che rappresenta ogni essere umano. Ogni nascita genera un token. Ogni decesso distrugge un token.</p>
   </section>
 
@@ -131,7 +130,7 @@
   <section id="buy">
     <h2>Acquista Ora: Token MUND a Prezzo Iniziale di 0,01 USD!</h2>
     <p class="cta">
-      🔒 Per acquistare i token, apri il browser integrato nell'app MetaMask e visita <strong class="notranslate">munduscoin.com</strong>
+      🔒 Per acquistare i token, apri il browser integrato nell'app MetaMask e vizitează <strong class="notranslate">munduscoin.com</strong>
     </p>
     <div class="card" style="text-align:center">
       <label for="tokenAmount">Quantità:</label><br>
@@ -140,7 +139,6 @@
       <button class="button" onclick="buyMundTokens()">Compra con ETH su MetaMask</button>
     </div>
   </section>
-
   <section id="docs">
     <h2>Documentazione</h2>
     <div class="card">
@@ -169,10 +167,19 @@
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: true
       }, 'google_translate_element');
-    }
-  </script>
 
-  <script>
+      setTimeout(() => {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith("en")) {
+          document.querySelectorAll('h2').forEach(el => {
+            if (el.textContent.includes("Things MundusCoin")) {
+              el.innerHTML = el.innerHTML.replace("Things", "What is");
+            }
+          });
+        }
+      }, 1000);
+    }
+
     function openWhitepaper() {
       const lang = navigator.language || navigator.userLanguage;
       let whitepaper = "whitepaper_dark_english_4pages_wrapped.pdf";
@@ -182,9 +189,6 @@
       else if (lang.startsWith("es")) whitepaper = "whitepaper-es.pdf";
       window.open(whitepaper, "_blank");
     }
-  </script>
-
-  <script>
     async function buyMundTokens() {
       const tokenAmount = parseFloat(document.getElementById('tokenAmount').value);
       if (!tokenAmount || tokenAmount <= 0) {
